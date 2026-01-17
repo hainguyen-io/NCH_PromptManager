@@ -1,0 +1,49 @@
+{
+  "app": "PromptVault",
+  "exportedAt": "2024-01-01T00:00:00.000Z",
+  "categories": [
+    {
+      "id": "new_cat_1",
+      "name": "New Category 1",
+      "color": "#8b5cf6"
+    }
+  ],
+  "prompts": [
+    {
+      "id": "test_missing_1",
+      "title": "Prompt with Valid Category",
+      "content": "This prompt references a category that will be imported.",
+      "description": "Should be imported",
+      "categoryId": "new_cat_1",
+      "tags": ["valid"],
+      "viewCount": 0,
+      "author": "Test",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    },
+    {
+      "id": "test_missing_2",
+      "title": "Prompt with Invalid Category",
+      "content": "This prompt references a category that doesn't exist.",
+      "description": "Should be skipped",
+      "categoryId": "non_existent_category",
+      "tags": ["invalid"],
+      "viewCount": 0,
+      "author": "Test",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    },
+    {
+      "id": "test_missing_3",
+      "title": "Prompt with Existing Category",
+      "content": "This prompt references an existing seed category.",
+      "description": "Should be imported",
+      "categoryId": "cat_1",
+      "tags": ["valid"],
+      "viewCount": 0,
+      "author": "Test",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    }
+  ]
+}

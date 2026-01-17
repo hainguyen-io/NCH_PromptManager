@@ -1,0 +1,60 @@
+{
+  "app": "PromptVault",
+  "exportedAt": "2024-01-01T00:00:00.000Z",
+  "categories": [],
+  "prompts": [
+    {
+      "id": "invalid_1",
+      "title": "Valid Prompt",
+      "content": "This prompt has valid structure.",
+      "categoryId": "cat_1",
+      "tags": ["valid"],
+      "viewCount": 0,
+      "author": "Test",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    },
+    {
+      "id": "invalid_2",
+      "title": "Missing Content",
+      "categoryId": "cat_1",
+      "tags": [],
+      "viewCount": 0,
+      "author": "Test",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    },
+    {
+      "id": "invalid_3",
+      "title": "",
+      "content": "Empty title should be invalid",
+      "categoryId": "cat_1",
+      "tags": [],
+      "viewCount": 0,
+      "author": "Test",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    },
+    {
+      "id": "invalid_4",
+      "title": "Wrong Tags Type",
+      "content": "Tags should be array",
+      "categoryId": "cat_1",
+      "tags": "not-an-array",
+      "viewCount": 0,
+      "author": "Test",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    },
+    {
+      "title": "Missing ID",
+      "content": "This prompt is missing the id field",
+      "categoryId": "cat_1",
+      "tags": [],
+      "viewCount": 0,
+      "author": "Test",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    }
+  ]
+}

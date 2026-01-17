@@ -1,0 +1,5 @@
+{
+  "name": "PromptVault",
+  "description": "A personal mini-SaaS for storing, managing, and discovering prompts. Features offline capability, category management, and data export/import.",
+  "requestFramePermissions": []
+}

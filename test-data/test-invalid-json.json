@@ -1,0 +1,10 @@
+{
+  "app": "PromptVault",
+  "exportedAt": "2024-01-01T00:00:00.000Z",
+  "categories": [],
+  "prompts": [
+    {
+      "invalid": "This is not a valid prompt structure"
+    }
+  ]
+}

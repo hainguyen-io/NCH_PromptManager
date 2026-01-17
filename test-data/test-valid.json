@@ -1,0 +1,42 @@
+{
+  "app": "PromptVault",
+  "exportedAt": "2024-01-01T00:00:00.000Z",
+  "categories": [
+    {
+      "id": "test_cat_1",
+      "name": "Test Category 1",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "test_cat_2",
+      "name": "Test Category 2",
+      "color": "#10b981"
+    }
+  ],
+  "prompts": [
+    {
+      "id": "test_p_1",
+      "title": "Test Prompt 1",
+      "content": "This is a test prompt content for testing import functionality.",
+      "description": "Test description",
+      "categoryId": "test_cat_1",
+      "tags": ["test", "import"],
+      "viewCount": 0,
+      "author": "Test User",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    },
+    {
+      "id": "test_p_2",
+      "title": "Test Prompt 2",
+      "content": "Another test prompt for validation testing.",
+      "description": "Second test prompt",
+      "categoryId": "test_cat_2",
+      "tags": ["test", "validation"],
+      "viewCount": 5,
+      "author": "Test User",
+      "createdAt": 1704067300000,
+      "isFavorite": true
+    }
+  ]
+}

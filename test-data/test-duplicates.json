@@ -1,0 +1,43 @@
+{
+  "app": "PromptVault",
+  "exportedAt": "2024-01-01T00:00:00.000Z",
+  "categories": [],
+  "prompts": [
+    {
+      "id": "p_1",
+      "title": "Duplicate Prompt 1",
+      "content": "This prompt has an ID that already exists in seed data (p_1).",
+      "description": "Should be skipped",
+      "categoryId": "cat_1",
+      "tags": ["duplicate"],
+      "viewCount": 0,
+      "author": "Test",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    },
+    {
+      "id": "test_new_1",
+      "title": "New Prompt 1",
+      "content": "This is a new prompt that should be imported.",
+      "description": "Should be imported",
+      "categoryId": "cat_1",
+      "tags": ["new"],
+      "viewCount": 0,
+      "author": "Test",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    },
+    {
+      "id": "p_2",
+      "title": "Duplicate Prompt 2",
+      "content": "Another duplicate with existing ID (p_2).",
+      "description": "Should be skipped",
+      "categoryId": "cat_2",
+      "tags": ["duplicate"],
+      "viewCount": 0,
+      "author": "Test",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    }
+  ]
+}

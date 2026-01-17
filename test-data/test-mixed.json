@@ -1,0 +1,69 @@
+{
+  "app": "PromptVault",
+  "exportedAt": "2024-01-01T00:00:00.000Z",
+  "categories": [
+    {
+      "id": "mixed_cat_1",
+      "name": "Mixed Test Category",
+      "color": "#f59e0b"
+    }
+  ],
+  "prompts": [
+    {
+      "id": "mixed_valid_1",
+      "title": "Valid Prompt 1",
+      "content": "This is a valid prompt that should be imported.",
+      "description": "Valid",
+      "categoryId": "mixed_cat_1",
+      "tags": ["valid"],
+      "viewCount": 0,
+      "author": "Test",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    },
+    {
+      "id": "mixed_valid_2",
+      "title": "Valid Prompt 2",
+      "content": "Another valid prompt.",
+      "description": "Valid",
+      "categoryId": "cat_1",
+      "tags": ["valid"],
+      "viewCount": 0,
+      "author": "Test",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    },
+    {
+      "id": "mixed_invalid_1",
+      "title": "",
+      "content": "This has empty title - should be invalid",
+      "categoryId": "cat_1",
+      "tags": [],
+      "viewCount": 0,
+      "author": "Test",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    },
+    {
+      "id": "mixed_invalid_2",
+      "title": "Missing Content",
+      "categoryId": "cat_1",
+      "tags": [],
+      "viewCount": 0,
+      "author": "Test",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    },
+    {
+      "id": "mixed_invalid_3",
+      "title": "Invalid Category",
+      "content": "This references non-existent category",
+      "categoryId": "does_not_exist",
+      "tags": [],
+      "viewCount": 0,
+      "author": "Test",
+      "createdAt": 1704067200000,
+      "isFavorite": false
+    }
+  ]
+}
