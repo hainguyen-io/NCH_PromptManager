@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { X, Copy, Tag, Calendar, User, Bookmark } from 'lucide-react';
 import { Prompt, Category } from '../types';
 import { usePromptStore, useUIStore, useUserStore } from '../store';
+import { copyToClipboard } from '../utils/copyToClipboard';
 
 interface PromptModalProps {
   prompt: Prompt;
@@ -18,9 +19,13 @@ const PromptModal: React.FC<PromptModalProps> = ({ prompt, category, onClose }) 
     incrementViewCount(prompt.id);
   }, [prompt.id, incrementViewCount]);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(prompt.content);
-    showToast('Prompt copied successfully!');
+  const handleCopy = async () => {
+    const success = await copyToClipboard(prompt.content);
+    if (success) {
+      showToast('Prompt copied successfully!');
+    } else {
+      showToast('Failed to copy. Please try again or copy manually.');
+    }
   };
 
   const handleSaveToMyPrompts = () => {

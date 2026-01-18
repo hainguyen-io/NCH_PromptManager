@@ -9,10 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^12.8.0",
+    "lucide-react": "^0.562.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "zustand": "^5.0.10",
-    "lucide-react": "^0.562.0"
+    "zustand": "^5.0.10"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

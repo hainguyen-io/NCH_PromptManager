@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { Menu, X, Layout, Library, BookMarked, Layers, Settings, UserCircle, Search } from 'lucide-react';
-import { useUIStore, useUserStore } from '../store';
+import { Menu, X, Layout, Library, BookMarked, Layers, Settings, UserCircle, Search, Shield, LogOut } from 'lucide-react';
+import { useUIStore, useAuthStore } from '../store';
 import { ViewName } from '../types';
+import { logoutUser } from '../services/authService';
 
 const APP_VERSION = 'v1.0.1';
 
 const Header = () => {
-  const { currentView, setView } = useUIStore();
-  const { user } = useUserStore();
+  const { currentView, setView, setToastMessage } = useUIStore();
+  const { userProfile, firebaseUser } = useAuthStore();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems: { view: ViewName; label: string; icon: React.ElementType }[] = [
@@ -16,6 +17,22 @@ const Header = () => {
     { view: 'MY_PROMPTS', label: 'My Prompts', icon: BookMarked },
     { view: 'CATEGORIES', label: 'Categories', icon: Layers },
   ];
+
+  // Add admin link if user is admin
+  if (userProfile?.role === 'admin') {
+    navItems.push({ view: 'ADMIN', label: 'Admin', icon: Shield });
+  }
+
+  // Handle logout
+  const handleLogout = async () => {
+    try {
+      await logoutUser();
+      setToastMessage('Logged out successfully');
+    } catch (error: any) {
+      console.error('Logout error:', error);
+      setToastMessage('Error logging out');
+    }
+  };
 
   const handleNavClick = (view: ViewName) => {
     setView(view);
@@ -64,12 +81,21 @@ const Header = () => {
               <Settings className="w-5 h-5" />
             </button>
             <button
+              onClick={handleLogout}
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-500 dark:text-gray-400"
+              title="Logout"
+            >
+              <LogOut className="w-5 h-5" />
+            </button>
+            <button
               onClick={() => setView('USER')}
               className="flex items-center space-x-2 p-1 pl-2 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
             >
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-200">{user.name}</span>
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
+                {userProfile?.name || firebaseUser?.email || 'User'}
+              </span>
               <div className="w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 flex items-center justify-center font-bold text-xs">
-                {user.avatarInitials}
+                {userProfile?.avatarInitials || (firebaseUser?.email?.[0]?.toUpperCase() || 'U')}
               </div>
             </button>
             <span className="text-xs text-gray-400 dark:text-gray-500 font-mono">{APP_VERSION}</span>
@@ -118,7 +144,14 @@ const Header = () => {
                 className="flex items-center w-full px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-800"
               >
                 <UserCircle className="w-5 h-5 mr-3" />
-                Profile ({user.name})
+                Profile ({userProfile?.name || firebaseUser?.email || 'User'})
+              </button>
+               <button
+                onClick={handleLogout}
+                className="flex items-center w-full px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-gray-800"
+              >
+                <LogOut className="w-5 h-5 mr-3" />
+                Logout
               </button>
               <div className="px-3 py-2">
                 <span className="text-xs text-gray-400 dark:text-gray-500 font-mono">{APP_VERSION}</span>

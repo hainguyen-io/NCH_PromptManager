@@ -2,6 +2,7 @@ import React from 'react';
 import { Eye, Copy, Heart, Edit2, Trash2 } from 'lucide-react';
 import { Prompt, Category } from '../types';
 import { usePromptStore, useUIStore } from '../store';
+import { copyToClipboard } from '../utils/copyToClipboard';
 
 interface PromptCardProps {
   prompt: Prompt;
@@ -15,10 +16,14 @@ const PromptCard: React.FC<PromptCardProps> = ({ prompt, category, onClick, onEd
   const { toggleFavorite } = usePromptStore();
   const { showToast } = useUIStore();
 
-  const handleCopy = (e: React.MouseEvent) => {
+  const handleCopy = async (e: React.MouseEvent) => {
     e.stopPropagation();
-    navigator.clipboard.writeText(prompt.content);
-    showToast('Prompt copied to clipboard!');
+    const success = await copyToClipboard(prompt.content);
+    if (success) {
+      showToast('Prompt copied to clipboard!');
+    } else {
+      showToast('Failed to copy. Please try again.');
+    }
   };
 
   const handleFavorite = (e: React.MouseEvent) => {
